@@ -5,7 +5,7 @@ const connectToDB = require('./src/config/database')
 
 
 connectToDB();
-
+app.set("trust proxy", 1);
 app.listen(3000,()=>{
     console.log("server is listening on port 3000");
 })
