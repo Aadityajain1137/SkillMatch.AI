@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-   origin: "https://skill-match-r97rw7etb-aaditya-jains-projects-086b948d.vercel.app",
+   origin: "https://skill-match-ai-six.vercel.app",
    credentials: true
 }));
 
