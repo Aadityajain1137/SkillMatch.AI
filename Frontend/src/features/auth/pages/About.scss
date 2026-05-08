@@ -1,0 +1,210 @@
+// components/About.scss
+$bg-page: #0d1117;
+$bg-card: #161b22;
+$border-color: #2a3348;
+$text-primary: #e6edf3;
+$text-muted: #7d8590;
+$accent: #ff2d78;
+$accent-secondary: #818cf8;
+
+.about-page {
+  min-height: 100vh;
+  background-color: $bg-page;
+  color: $text-primary;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.about-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba($accent, 0.1), rgba($accent-secondary, 0.1));
+  border-bottom: 1px solid $border-color;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    
+    .highlight {
+      color: $accent;
+    }
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: $text-muted;
+  }
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.mission-section {
+  margin-bottom: 4rem;
+  
+  .mission-card {
+    background: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    
+    .mission-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      color: $accent;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: $text-muted;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.features-section {
+  margin-bottom: 4rem;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    .highlight {
+      color: $accent;
+    }
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    
+    .feature-card {
+      background: $bg-card;
+      border: 1px solid $border-color;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border-color: $accent;
+      }
+      
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        margin-bottom: 0.5rem;
+        color: $accent-secondary;
+      }
+      
+      p {
+        color: $text-muted;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.stats-section {
+  margin-bottom: 4rem;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    
+    .stat-card {
+      background: $bg-card;
+      border: 1px solid $border-color;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+      
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: $accent;
+        margin-bottom: 0.5rem;
+      }
+      
+      .stat-label {
+        color: $text-muted;
+      }
+    }
+  }
+}
+
+.team-section {
+  margin-bottom: 4rem;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    
+    .team-card {
+      background: $bg-card;
+      border: 1px solid $border-color;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+      
+      .team-avatar {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        margin-bottom: 0.5rem;
+        color: $accent-secondary;
+      }
+      
+      p {
+        color: $accent;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      
+      .team-bio {
+        color: $text-muted;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 2rem 1rem;
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  .about-content {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,295 @@
+// components/Careers.scss
+$bg-page: #0d1117;
+$bg-card: #161b22;
+$border-color: #2a3348;
+$text-primary: #e6edf3;
+$text-muted: #7d8590;
+$accent: #ff2d78;
+$accent-secondary: #818cf8;
+
+.careers-page {
+  min-height: 100vh;
+  background-color: $bg-page;
+  color: $text-primary;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.careers-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba($accent, 0.1), rgba($accent-secondary, 0.1));
+  border-bottom: 1px solid $border-color;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    
+    .highlight {
+      color: $accent;
+    }
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: $text-muted;
+  }
+}
+
+.careers-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.culture-section {
+  margin-bottom: 4rem;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    .highlight {
+      color: $accent;
+    }
+  }
+  
+  .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    
+    .culture-card {
+      background: $bg-card;
+      border: 1px solid $border-color;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+      
+      .culture-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        color: $accent-secondary;
+        margin-bottom: 0.5rem;
+      }
+      
+      p {
+        color: $text-muted;
+      }
+    }
+  }
+}
+
+.jobs-section {
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+    .job-card {
+      background: $bg-card;
+      border: 1px solid $border-color;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+      
+      &:hover {
+        transform: translateX(5px);
+        border-color: $accent;
+      }
+      
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        
+        h3 {
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+          color: $accent-secondary;
+        }
+        
+        .job-meta {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          
+          .job-tag {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba($accent, 0.1);
+            border: 1px solid rgba($accent, 0.2);
+            border-radius: 0.3rem;
+            color: $accent;
+          }
+        }
+        
+        .job-salary {
+          font-weight: bold;
+          color: $accent;
+          background: rgba($accent, 0.1);
+          padding: 0.3rem 0.8rem;
+          border-radius: 0.5rem;
+        }
+      }
+      
+      .job-description {
+        color: $text-muted;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+      
+      .job-requirements {
+        margin-bottom: 1.5rem;
+        
+        strong {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: $text-primary;
+        }
+        
+        ul {
+          margin: 0;
+          padding-left: 1.5rem;
+          
+          li {
+            color: $text-muted;
+            margin-bottom: 0.3rem;
+          }
+        }
+      }
+      
+      .apply-btn {
+        background: $accent;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: transform 0.2s;
+        
+        &:hover {
+          transform: translateY(-2px);
+          background: lighten($accent, 10%);
+        }
+      }
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  
+  .modal-content {
+    background: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    
+    h2 {
+      margin-bottom: 1.5rem;
+      color: $accent;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+      
+      label {
+        display: block;
+        margin-bottom: 0.3rem;
+        color: $text-primary;
+        font-size: 0.9rem;
+      }
+      
+      input, textarea {
+        width: 100%;
+        padding: 0.6rem;
+        background: $bg-page;
+        border: 1px solid $border-color;
+        border-radius: 0.4rem;
+        color: $text-primary;
+        font-family: inherit;
+        
+        &:focus {
+          outline: none;
+          border-color: $accent;
+        }
+      }
+    }
+    
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      
+      button {
+        flex: 1;
+        padding: 0.6rem;
+        border: none;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        
+        &.cancel-btn {
+          background: $bg-page;
+          border: 1px solid $border-color;
+          color: $text-muted;
+          
+          &:hover {
+            background: rgba($accent, 0.1);
+          }
+        }
+        
+        &.submit-btn {
+          background: $accent;
+          color: white;
+          
+          &:hover {
+            background: lighten($accent, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .careers-hero {
+    padding: 2rem 1rem;
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  .careers-content {
+    padding: 1rem;
+  }
+  
+  .job-card .job-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,136 @@
+.login-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    gap: 0;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    &__particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    &__lock {
+        position: relative;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 2rem;
+        animation: ls-fadeIn 0.4s ease;
+
+        .lock-shackle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 28px;
+            border: 2.5px solid #888;
+            border-radius: 14px 14px 0 0;
+            border-bottom: none;
+        }
+
+        .lock-body {
+            position: absolute;
+            bottom: 0;
+            left: 8px;
+            right: 8px;
+            height: 38px;
+            border-radius: 8px;
+            background: #f0f0f0;
+            border: 0.5px solid #ccc;
+        }
+
+        .lock-dot {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #888;
+            animation: ls-blink 1.4s ease infinite;
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 0 6px;
+        animation: ls-fadeIn 0.5s ease 0.1s both;
+    }
+
+    &__sub {
+        font-size: 13px;
+        color: #999;
+        margin: 0 0 2rem;
+        animation: ls-fadeIn 0.5s ease 0.2s both;
+    }
+
+    &__bar-track {
+        width: 200px;
+        height: 2px;
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 99px;
+        overflow: hidden;
+        animation: ls-fadeIn 0.5s ease 0.3s both;
+    }
+
+    &__bar-fill {
+        height: 100%;
+        background: #1a1f27;
+        border-radius: 99px;
+        animation: ls-fillBar 2.5s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+    }
+
+    &__chars {
+        display: flex;
+        gap: 4px;
+        margin-top: 2rem;
+        animation: ls-fadeIn 0.5s ease 0.4s both;
+
+        .char-box {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+            background: rgba(0, 0, 0, 0.1);
+
+            &.filled {
+                background: #1a1f27;
+            }
+        }
+    }
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    animation: ls-floatUp linear infinite;
+    opacity: 0;
+}
+
+@keyframes ls-floatUp {
+    0%   { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-60px); opacity: 0; }
+}
+
+@keyframes ls-fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ls-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+@keyframes ls-fillBar {
+    0%   { width: 0%; }
+    100% { width: 85%; }
+}
