@@ -343,7 +343,7 @@
 const { GoogleGenAI } = require("@google/genai")
 const { z } = require("zod")
 const { zodToJsonSchema } = require("zod-to-json-schema")
-const puppeteer = require("puppeteer")
+const html_to_pdf = require("html-pdf-node")
 
 const ai = new GoogleGenAI({
     apiKey: process.env.GOOGLE_GENAI_API_KEY
@@ -645,22 +645,37 @@ RULES:
 // ---------------------------------------------------------------------------
 // PDF helpers (unchanged logic, minor clean-up)
 // ---------------------------------------------------------------------------
+// async function generatePdfFromHtml(htmlContent) {
+//     const browser = await puppeteer.launch({
+//   headless: true,
+//   args: ["--no-sandbox", "--disable-setuid-sandbox"],
+// });
+//     const page = await browser.newPage()
+//     await page.setContent(htmlContent, { waitUntil: "networkidle0" })
+
+//     const pdfBuffer = await page.pdf({
+//         format: "A4",
+//         margin: { top: "20mm", bottom: "20mm", left: "15mm", right: "15mm" },
+//         printBackground: true,
+//     })
+
+//     await browser.close()
+//     return pdfBuffer
+// }
 async function generatePdfFromHtml(htmlContent) {
-    const browser = await puppeteer.launch({
-  headless: true,
-  args: ["--no-sandbox", "--disable-setuid-sandbox"],
-});
-    const page = await browser.newPage()
-    await page.setContent(htmlContent, { waitUntil: "networkidle0" })
 
-    const pdfBuffer = await page.pdf({
+    let options = {
         format: "A4",
-        margin: { top: "20mm", bottom: "20mm", left: "15mm", right: "15mm" },
         printBackground: true,
-    })
+    };
 
-    await browser.close()
-    return pdfBuffer
+    let file = {
+        content: htmlContent,
+    };
+
+    const pdfBuffer = await html_to_pdf.generatePdf(file, options);
+
+    return pdfBuffer;
 }
 
 async function generateResumePdf({ resume, selfDescription, jobDescription }) {
