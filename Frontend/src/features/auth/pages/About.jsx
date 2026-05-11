@@ -59,7 +59,7 @@ const About = () => {
           <h2>Impact by the Numbers</h2>
           <div className="stats-grid">
             <div className="stat-card">
-              <div className="stat-number">10,000+</div>
+              <div className="stat-number">100+</div>
               <div className="stat-label">Active Users</div>
             </div>
             <div className="stat-card">
@@ -67,7 +67,7 @@ const About = () => {
               <div className="stat-label">Success Rate</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">50,000+</div>
+              <div className="stat-number">50+</div>
               <div className="stat-label">Interviews Prepared</div>
             </div>
             <div className="stat-card">
@@ -83,20 +83,20 @@ const About = () => {
             <div className="team-card">
               <div className="team-avatar">👨‍💻</div>
               <h3>Aaditya Jain</h3>
-              <p>CEO & Founder</p>
-              <div className="team-bio">Ex-Google AI Engineer</div>
+              <p>Backend Designer</p>
+              <div className="team-bio">Full Stack Developer</div>
             </div>
             <div className="team-card">
-              <div className="team-avatar">👩‍🔬</div>
-              <h3>Sarah Johnson</h3>
-              <p>Head of AI Research</p>
-              <div className="team-bio">PhD in Machine Learning</div>
+              <div className="team-avatar">👨‍💻</div>
+              <h3>Arpit Sharma</h3>
+              <p>UI UX Designer</p>
+              <div className="team-bio">Frontend Developer</div>
             </div>
             <div className="team-card">
               <div className="team-avatar">👨‍🎨</div>
-              <h3>Michael Rodriguez</h3>
-              <p>Product Designer</p>
-              <div className="team-bio">UX Design Expert</div>
+              <h3>Nikhil Jhankal</h3>
+              <p>Logic Implementation</p>
+              <div className="team-bio">Technical Documentation & Logic Developer</div>
             </div>
           </div>
         </section>
