@@ -259,7 +259,7 @@ const Home = () => {
                                     <span className='badge badge--best'>Best Results</span>
                                 </label>
 
-                                <label className='dropzone' htmlFor='resume' style={resumeFile ? { borderColor: '#22c55e', background: '#f0fdf4' } : {}}>
+                                <label className='dropzone' htmlFor='resume' style={resumeFile ? { borderColor: '#22c55e', background: '#202940' } : {}}>
                                     {resumeFile ? (
                                         /* File selected state */
                                         <>
