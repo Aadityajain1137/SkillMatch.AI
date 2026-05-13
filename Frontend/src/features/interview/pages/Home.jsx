@@ -151,7 +151,7 @@ const Home = () => {
                                         type='file'
                                         id='resume'
                                         name='resume'
-                                        accept='.pdf,.docx'
+                                        accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                                         onChange={handleFileChange}
                                     />
                                 </label>
