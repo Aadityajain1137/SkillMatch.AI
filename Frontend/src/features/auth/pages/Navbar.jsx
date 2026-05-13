@@ -18,7 +18,7 @@ const Navbar = () => {
       {/* Logo */}
       <Link to="/" className="navbar__logo">
         <img 
-          src="SkillMatchLogo.png" 
+          src="SkillMatch1.png" 
           alt="SkillMatch Logo" 
           className="navbar__logo-img"
         />

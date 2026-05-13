@@ -223,15 +223,23 @@
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
-
+  overflow: hidden;
   /* ── Logo ── */
+  // &__logo {
+  //   display: flex;
+  //   align-items: center;
+  //   gap: 0.75rem;
+  //   text-decoration: none;
+  //   flex-shrink: 0;
+  // }
   &__logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 
   &__logo-img {
     width: 36px;
@@ -410,11 +418,21 @@
       display: none;
     }
     
+    // &__logo-img {
+    //   width: 32px;
+    //   height: 32px;
+    //   border-radius: 8px;
+    // }
     &__logo-img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-    }
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; // circular
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
     
     &__logo-text {
       font-size: 1.1rem;
