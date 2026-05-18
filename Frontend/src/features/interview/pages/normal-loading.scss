@@ -1,179 +1,72 @@
+// Simple page loading — dark theme
+
+$bg:       #0a0a0a;
+$white:    #ffffff;
+$dim:      rgba(255, 255, 255, 0.4);
+$faint:    rgba(255, 255, 255, 0.08);
+
+@keyframes nl-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes nl-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes nl-dot-bounce {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(1);   }
+  40%           { opacity: 1;   transform: scale(1.4); }
+}
+
 .ex-loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    gap: 0;
-    padding: 2rem;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem;
+  background: $bg;
+  animation: nl-fade-in 0.4s ease both;
 
-    &__canvas {
-        position: relative;
-        width: 160px;
-        height: 160px;
-        margin-bottom: 2rem;
-    }
+  &__ring {
+    position: relative;
+    width: 44px;
+    height: 44px;
+  }
 
-    &__title {
-        font-size: 18px;
-        font-weight: 500;
-        margin: 0 0 8px;
-        animation: ex-fade 0.5s ease 0.2s both;
-    }
-
-    &__typewriter {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        font-size: 13px;
-        color: #888;
-        margin: 0 0 2rem;
-        min-height: 20px;
-        animation: ex-fade 0.5s ease 0.4s both;
-    }
-
-    &__msg {
-        color: #888;
-    }
-
-    &__cursor {
-        display: inline-block;
-        width: 1px;
-        height: 14px;
-        background: #aaa;
-        margin-left: 1px;
-        animation: ex-blink 1s step-end infinite;
-    }
-
-    &__steps {
-        display: flex;
-        gap: 6px;
-        animation: ex-fade 0.5s ease 0.6s both;
-    }
-}
-
-.ex-ring {
-    position: absolute;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: transparent;
-
-    &--1 {
-        inset: 0;
-        border-width: 1.5px;
-        border-top-color: #1a1f27;
-        border-right-color: #1a1f27;
-        animation: ex-spin 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-
-    &--2 {
-        inset: 16px;
-        border-width: 1.5px;
-        border-bottom-color: #888;
-        border-left-color: #888;
-        animation: ex-spin-r 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-
-    &--3 {
-        inset: 32px;
-        border-width: 1px;
-        border-top-color: #ccc;
-        animation: ex-spin 3s linear infinite;
-    }
-}
-
-.ex-orbit {
-    position: absolute;
-    border-radius: 50%;
-
-    &--1 {
-        inset: 0;
-        animation: ex-spin 2s linear infinite;
-    }
-
-    &--2 {
-        inset: 16px;
-        animation: ex-spin-r 1.5s linear infinite;
-    }
-}
-
-.ex-orbit-dot {
-    position: absolute;
-    top: -3px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-
-    &--1 {
-        width: 6px;
-        height: 6px;
-        background: #1a1f27;
-    }
-
-    &--2 {
-        width: 4px;
-        height: 4px;
-        background: #888;
-        top: -2px;
-    }
-}
-
-.ex-ticks {
+  &__track {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    animation: ex-spin 8s linear infinite;
+    border-radius: 50%;
+    border: 2.5px solid $faint;
+  }
 
-    line {
-        stroke: rgba(0, 0, 0, 0.2);
-    }
-
-    .ex-tick-minor {
-        stroke: rgba(0, 0, 0, 0.1);
-    }
-}
-
-.ex-core {
+  &__fill {
     position: absolute;
-    inset: 48px;
+    inset: 0;
     border-radius: 50%;
-    background: #f5f5f5;
-    border: 0.5px solid #ddd;
+    border: 2.5px solid transparent;
+    border-top-color: $white;
+    border-right-color: rgba($white, 0.5);
+    animation: nl-spin 0.85s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  &__dots {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: ex-float 3s ease-in-out infinite;
+    gap: 6px;
+    margin-top: 20px;
+  }
 
-    svg {
-        width: 28px;
-        height: 28px;
-        color: #1a1f27;
-        animation: ex-pulse 2s ease-in-out infinite;
-    }
-}
-
-.ex-step-dot {
-    width: 6px;
-    height: 6px;
+  &__dot {
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: #ddd;
-    transition: background 0.3s, transform 0.3s;
+    background: $dim;
+    animation: nl-dot-bounce 1.2s ease infinite;
 
-    &.active {
-        background: #1a1f27;
-        transform: scale(1.4);
-    }
-
-    &.done {
-        background: #888;
-    }
+    &:nth-child(1) { animation-delay: 0.00s; }
+    &:nth-child(2) { animation-delay: 0.15s; }
+    &:nth-child(3) { animation-delay: 0.30s; }
+  }
 }
-
-@keyframes ex-spin    { to { transform: rotate(360deg); } }
-@keyframes ex-spin-r  { to { transform: rotate(-360deg); } }
-@keyframes ex-float   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-@keyframes ex-pulse   { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.15);opacity:0.7} }
-@keyframes ex-fade    { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
-@keyframes ex-blink   { 0%,100%{opacity:1} 49%{opacity:1} 50%,99%{opacity:0} }
